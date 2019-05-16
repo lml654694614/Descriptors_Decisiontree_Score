@@ -1,0 +1,10 @@
+descriptor,N,S
+((nA*np.cbrt((rB/rX)))*((nB/nX)+((rB/rX)/(rA/rB)))),261,0.9025
+(((nA)**-1/np.cbrt((rB/rX)))/((nB/nX)+((rB/rX)/(rA/rB)))),268,0.9538
+(((nA*nX)*np.cbrt((rB/rX)))*((nB/nX)+((rB/rX)/(rA/rB)))),269,0.9307
+(((nB/nX)+((rB/rX)/(rA/rB)))*((nA/(rA/rB))*((rA/rB)+(rA/rX)))),280,0.9103
+(((nA/rX)*(rB+rX))*((nB/nX)+((rB/rX)/(rA/rB)))),280,0.9103
+((((rA/rB)-(rB/rX))/(nA*(rA/rX)))-((nX)**-1/np.log((rA/rB)))),281,0.9013
+(((nA)**2*((rB/rX)/rX))*((nX/nA)+((rB/rX)/(rA/rB)))),286,0.7954
+(((nA/rB)*((rB/rX))**3)*((nA/(rA/rB))+(nX/(rB/rX)))),286,0.7955
+(((nA)**2*np.cbrt((rB/rX)))*((nB/nX)+((rB/rX)/(rA/rB)))),286,0.9683
