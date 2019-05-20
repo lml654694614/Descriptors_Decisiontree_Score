@@ -45,9 +45,6 @@ des=pd.read_csv('descriptors.csv',header=0,nrows=200)
 mat=pd.read_csv('trainA.csv',header=0)
 matt=pd.read_csv('test.csv',header=0)
 pool = Pool()
-# =============================================================================
-# deslist=[x for x in range(len(des))]
-# =============================================================================
 score=pool.map(make_score, range(len(des)))
 pool.close()
 pool.join()
