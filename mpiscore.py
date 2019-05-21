@@ -8,10 +8,12 @@ import numpy as np
 import pandas as pd
 import os
 import time
+import multiprocessing
 from sklearn.tree import DecisionTreeClassifier
-from multiprocessing.dummy import Pool
+from functools import  partial
 
-def make_score(d):
+
+def make_score(d,mat,matt,des):
     tau=[]
     taut=[]
     for row in mat.index:
@@ -39,16 +41,17 @@ def make_score(d):
     score=estimator.score(X_test,y_test)
     return score
 
-start=time.time()
-os.getcwd()
-des=pd.read_csv('descriptors.csv',header=0,nrows=200)
-mat=pd.read_csv('trainA.csv',header=0)
-matt=pd.read_csv('test.csv',header=0)
-pool = Pool()
-score=pool.map(make_score, range(len(des)))
-pool.close()
-pool.join()
-des['score']=score
-des.to_csv('des_score.csv',index=0,float_format='%.4f')
-end=time.time()
-print(end-start)
+if __name__ == '__main__':
+    start=time.time()
+    os.getcwd()
+    des=pd.read_csv('descriptors.csv',header=0,nrows=200)
+    mat=pd.read_csv('trainA.csv',header=0)
+    matt=pd.read_csv('test.csv',header=0)
+    pool = multiprocessing.Pool()
+    score=pool.map(partial(make_score,mat=mat,matt=matt,des=des),range(len(des)))
+    pool.close()
+    pool.join()
+    des['score']=score
+    des.to_csv('des_score.csv',index=0,float_format='%.4f')
+    end=time.time()
+    print(end-start)
